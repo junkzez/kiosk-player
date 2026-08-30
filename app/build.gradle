@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'ua.kiosk.player'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "ua.kiosk.player"
+        minSdk 19          // works on old Chinese firmware (4.4+)
+        targetSdk 28       // legacy storage access, no scoped-storage headache
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug   // self-signed, for sideloading
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lint { abortOnError false }
+}
+
+dependencies { }   // intentionally empty: no AndroidX, no ExoPlayer
