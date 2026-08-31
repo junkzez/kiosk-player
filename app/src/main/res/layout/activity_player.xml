@@ -6,7 +6,7 @@
     android:background="#000000"
     android:keepScreenOn="true">
 
-    <SurfaceView
+    <TextureView
         android:id="@+id/surface"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
