@@ -46,11 +46,11 @@ public class PlayerActivity extends Activity
     // ---------------- settings ----------------
     /** Folder with videos. First existing one is used. */
     private static final String[] DIRS = {
-            "/sdcard/kiosk",
-            "/mnt/sdcard/kiosk",
-            "/storage/emulated/0/kiosk",
-            "/mnt/usb_storage/kiosk",
-            "/storage/external_storage/kiosk"
+            "/sdcard/Movies",
+            "/mnt/sdcard/Movies",
+            "/storage/emulated/0/Movies",
+            "/mnt/usb_storage/Movies",
+            "/storage/external_storage/Movies"
     };
     private static final String[] EXT = {".mp4", ".mkv", ".avi", ".mov", ".m4v", ".ts", ".webm", ".3gp"};
     /** Set to true to play without sound. */
@@ -139,7 +139,7 @@ public class PlayerActivity extends Activity
             File f = new File(d);
             if (f.isDirectory()) return f;
         }
-        File ext = new File(Environment.getExternalStorageDirectory(), "kiosk");
+        File ext = new File(Environment.getExternalStorageDirectory(), "Movies");
         if (ext.isDirectory()) return ext;
         // last resort: Download folder
         File dl = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
@@ -180,7 +180,7 @@ public class PlayerActivity extends Activity
     private void showHint() {
         File dir = findDir();
         hint.setText("Нет видеофайлов.\nСкопируйте .mp4 в папку:\n"
-                + (dir != null ? dir.getAbsolutePath() : "/sdcard/kiosk")
+                + (dir != null ? dir.getAbsolutePath() : "/sdcard/Movies")
                 + "\n\nОжидание...");
         hint.setVisibility(View.VISIBLE);
     }
